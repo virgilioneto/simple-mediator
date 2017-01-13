@@ -13,9 +13,9 @@
   "author": "Virgilio Missão Neto <virgilio.missao.neto@gmail.com>",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/virgilioneto/moodle-rest-client/issues"
+    "url": "https://github.com/virgilioneto/simple-mediator/issues"
   },
-  "homepage": "https://github.com/virgilioneto/moodle-rest-client#readme",
+  "homepage": "https://github.com/virgilioneto/simple-mediator#readme",
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "^2.11.15",
