@@ -32,3 +32,6 @@ $ bower install simple-mediator --save
 <script src="bower_components/simple-mediator/dist/index"></script>
 <script src="bower_components/simple-mediator/dist/context.js"></script>
 ```
+
+# Docs
+[Simple Mediator](https://virgilioneto.github.io/simple-mediator)
