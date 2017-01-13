@@ -1,0 +1,5 @@
+language: node_js
+node_js:
+  - "6"
+after_sucess:
+  - ./node_modules/.bin/mocha ./test/*.spec.js -R mocha-lcov-reporter | ./node_modules/.bin/coveralls

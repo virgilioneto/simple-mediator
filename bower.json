@@ -1,0 +1,11 @@
+{
+  "name": "simple-mediator",
+  "version": "0.1.0",
+  "description": "Simple Mediator Module",
+  "main": "",
+  "authors": [
+    "Virgilio Missão Neto <virgilio.missao.neto@gmail.com"
+  ],
+  "license": "Apache-2.0",
+  "homepage": "https://github.com/virgilioneto/simple-mediator"
+}

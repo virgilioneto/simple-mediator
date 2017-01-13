@@ -1,0 +1,6 @@
+{
+  "extends": ["standard", "standard-jsx"],
+  "env": {
+    "mocha": true
+  }
+}
