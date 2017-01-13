@@ -1,4 +1,4 @@
-# Simple Mediator
+# Simple Mediator (WIP)
 
 **DISCLAIMER**: This is an early development version and *ISN'T READY FOR PRODUCTION*!
 
