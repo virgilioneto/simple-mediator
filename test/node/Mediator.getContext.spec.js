@@ -25,6 +25,14 @@ describe('Mediator#getContext', () => {
       c1.name.should.be.a('String')
       expect(c1.name).to.be.equal('My Namespace')
     })
+
+    it('Call multiple times with the same namespace', () => {
+      let c1 = Mediator.getContext('My Namespace')
+      Mediator.getContext('My Namespace')
+      expect(c1).to.be.an.instanceof(NodeContext)
+      c1.name.should.be.a('String')
+      expect(c1.name).to.be.equal('My Namespace')
+    })
   })
 
   context('Invalid operations', () => {
