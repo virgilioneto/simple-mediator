@@ -2,7 +2,6 @@
 const chai = require('chai')
 const Mediator = require('../../')
 const NodeContext = require('../../lib/nodeContext')
-const assert = chai.assert
 const expect = chai.expect
 
 chai.should()
