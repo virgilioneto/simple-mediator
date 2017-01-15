@@ -9,7 +9,7 @@
       return (root.Mediator = Mediator(Context));
     });
   } else if(typeof module === "object" && module.exports) {
-    if (typeof process && process.hasOwnProperty('node')) {
+    if (typeof process === 'object' && process.hasOwnProperty('versions') && process.versions.node) {
       module.exports = Mediator(require('./lib/nodeContext'))
     } else {
       module.exports = (root.Mediator = Mediator(require('./lib/browserContext')));
@@ -32,7 +32,7 @@
    * @returns {Mediator.Context} Context instance
    */
   function instantiateContext (namespace) {
-    contextList[namespace || defaultNamespace] = new Context()
+    contextList[namespace || defaultNamespace] = new Context(namespace || defaultNamespace)
     return contextList[namespace]
   }
 
@@ -42,10 +42,11 @@
    * @static
    * @function getContext
    * @param [namespace='default' {String=} Context namespace
-   * @returns {Mediator.Context} Context instance
+   * @returns {Mediator.Context|Error} Context instance
    */
   function getContext (namespace) {
     namespace = namespace || defaultNamespace
+    if (typeof namespace !== 'string') return new Error('Namespace MUST BE A String')
     return contextList.hasOwnProperty(namespace)
       ? contextList[namespace]
       : instantiateContext(namespace)
@@ -68,12 +69,15 @@
    * @static
    * @function destroyContext
    * @param [namespace='default'] {String=} Context namespace
-   * @returns {Boolean}
+   * @returns {Boolean|Error}
    */
   function destroyContext (namespace) {
+    namespace = namespace || defaultNamespace
+    if (typeof namespace !== 'string') return new Error('Namespace MUST BE A String')
     if (!contextList.hasOwnProperty(namespace)) return false
 
-    return contextList[namespace].removeAll()
+    contextList[namespace].removeAll()
+    return delete contextList[namespace]
   }
 
   /**
