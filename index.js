@@ -1,5 +1,7 @@
 /**
- * @namespace Mediator
+ * @module Mediator
+ * @requires NodeContext
+ * @requires BrowserContext
  */
 ;(function (root, Mediator) {
   if(typeof define === "function" && define.amd) {
@@ -23,7 +25,7 @@
 
   /**
    * Instantiate context based on namespace
-   * @memberOf! Mediator
+   * @member instantiateContext
    * @function instantiateContext
    * @private
    * @param [namespace='default'] {String=} Context namespace
@@ -36,7 +38,8 @@
 
   /**
    * Get mediator context based on namespace
-   * @memberOf! Mediator
+   * @member getContext
+   * @static
    * @function getContext
    * @param [namespace='default' {String=} Context namespace
    * @returns {Mediator.Context} Context instance
@@ -50,7 +53,8 @@
 
   /**
    * Get context name list
-   * @memberOf! Mediator
+   * @member getContextList
+   * @static
    * @function getContextList
    * @returns {Array} Context list names
    */
@@ -60,7 +64,8 @@
 
   /**
    * Destroy mediator context based on namespace
-   * @memberOf! Mediator
+   * @member destroyContext
+   * @static
    * @function destroyContext
    * @param [namespace='default'] {String=} Context namespace
    * @returns {Boolean}
@@ -73,7 +78,8 @@
 
   /**
    * Destroy all contexts
-   * @memberOf! Mediator
+   * @member destroyAllContexts
+   * @static
    * @function destroyAllContexts
    */
   function destroyAllContexts () {

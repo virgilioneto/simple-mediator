@@ -4,7 +4,7 @@
   "description": "Simple Mediator",
   "main": "index.js",
   "scripts": {
-    "doc": "node_modules/.bin/jsdoc -t ./node_modules/ink-docstrap/template -R README.md -r ./lib"
+    "doc": "node_modules/.bin/jsdoc -t ./node_modules/ink-docstrap/template -R README.md -r index.js ./lib"
   },
   "repository": {
     "type": "git",
