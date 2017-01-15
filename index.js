@@ -7,7 +7,11 @@
       return (root.Mediator = Mediator(Context));
     });
   } else if(typeof module === "object" && module.exports) {
-    module.exports = (root.Mediator = Mediator(require('./context')));
+    if (typeof process && process.hasOwnProperty('node')) {
+      module.exports = Mediator(require('./lib/nodeContext'))
+    } else {
+      module.exports = (root.Mediator = Mediator(require('./lib/browserContext')));
+    }
   } else {
     root.Mediator = Mediator(root.Context);
   }
@@ -15,14 +19,14 @@
   'use strict'
 
   var contextList = {}
-  var defaultNamespace = 'global'
+  var defaultNamespace = 'default'
 
   /**
    * Instantiate context based on namespace
    * @memberOf! Mediator
    * @function instantiateContext
    * @private
-   * @param [namespace='global'] {String=} Context namespace
+   * @param [namespace='default'] {String=} Context namespace
    * @returns {Mediator.Context} Context instance
    */
   function instantiateContext (namespace) {
@@ -34,7 +38,7 @@
    * Get mediator context based on namespace
    * @memberOf! Mediator
    * @function getContext
-   * @param [namespace='global' {String=} Context namespace
+   * @param [namespace='default' {String=} Context namespace
    * @returns {Mediator.Context} Context instance
    */
   function getContext (namespace) {
@@ -58,7 +62,7 @@
    * Destroy mediator context based on namespace
    * @memberOf! Mediator
    * @function destroyContext
-   * @param [namespace='global'] {String=} Context namespace
+   * @param [namespace='default'] {String=} Context namespace
    * @returns {Boolean}
    */
   function destroyContext (namespace) {

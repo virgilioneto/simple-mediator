@@ -2,7 +2,7 @@
   "name": "simple-mediator",
   "version": "0.1.1",
   "description": "Simple Mediator",
-  "main": "lib/index.js",
+  "main": "index.js",
   "scripts": {
     "doc": "node_modules/.bin/jsdoc -t ./node_modules/ink-docstrap/template -R README.md -r ./lib"
   },
