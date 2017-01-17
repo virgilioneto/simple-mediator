@@ -5,23 +5,24 @@ const expect = chai.expect
 
 chai.should()
 
-describe('NodeContext#on', () => {
+describe('NodeContext#off', () => {
   context('Valid operations', () => {
     it('Event and function', () => {
       let c = new NodeContext('context')
       let fn = () => {}
       c.on('event', fn)
+      c.off('event', fn)
       let listeners = c.getListeners('event')
       expect(listeners).to.be.an('Array')
-      expect(listeners).to.have.length(1)
-      expect(listeners).to.have.members([fn])
+      expect(listeners).to.have.length(0)
     })
 
     it('Same event and function more than once', () => {
       let c = new NodeContext('context')
       let fn = () => {}
       c.on('event', fn)
-      let result = c.on('event', fn)
+      c.off('event', fn)
+      let result = c.off('event', fn)
       expect(result).to.be.a('Boolean')
       result.should.be.equal(false)
     })
@@ -31,7 +32,9 @@ describe('NodeContext#on', () => {
     it('No params given', () => {
       let c = new NodeContext('context')
       try {
-        c.on()
+        let fn = () => {}
+        c.on('event', fn)
+        c.off()
       } catch (ex) {
         expect(ex).to.be.an.instanceof(Error)
         ex.message.should.be.a('String')
@@ -42,7 +45,9 @@ describe('NodeContext#on', () => {
     it('No event given', () => {
       let c = new NodeContext('context')
       try {
-        c.on(null, () => {})
+        let fn = () => {}
+        c.on('event', fn)
+        c.off(null, fn)
       } catch (ex) {
         expect(ex).to.be.an.instanceof(Error)
         ex.message.should.be.a('String')
@@ -53,7 +58,9 @@ describe('NodeContext#on', () => {
     it('With non-string event param', () => {
       let c = new NodeContext('context')
       try {
-        c.on(123, () => {})
+        let fn = () => {}
+        c.on('event', fn)
+        c.off(123, fn)
       } catch (ex) {
         expect(ex).to.be.an.instanceof(Error)
         ex.message.should.be.a('String')
@@ -64,7 +71,9 @@ describe('NodeContext#on', () => {
     it('No fn given', () => {
       let c = new NodeContext('context')
       try {
-        c.on('event')
+        let fn = () => {}
+        c.on('event', fn)
+        c.off('event')
       } catch (ex) {
         expect(ex).to.be.an.instanceof(Error)
         ex.message.should.be.a('String')
@@ -75,7 +84,9 @@ describe('NodeContext#on', () => {
     it('With non-function fn param', () => {
       let c = new NodeContext('context')
       try {
-        c.on('event', 'something wrong')
+        let fn = () => {}
+        c.on('event', fn)
+        c.off('event', 'something wrong')
       } catch (ex) {
         expect(ex).to.be.an.instanceof(Error)
         ex.message.should.be.a('String')

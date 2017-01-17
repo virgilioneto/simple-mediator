@@ -4,9 +4,9 @@
   "description": "Simple Mediator",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha ./test/node/*.spec.js",
-    "istanbul": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec ./test/node/*.spec.js && rm -rf ./coverage",
-    "codecov": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec ./test/node/*.spec.js && ./node_modules/.bin/codecov -f ./coverage/coverage.json && rm -rf ./coverage",
+    "test": "./node_modules/.bin/mocha ./test/**/*.spec.js",
+    "istanbul": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec ./test/**/*.spec.js && rm -rf ./coverage",
+    "codecov": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec ./test/**/*.spec.js && ./node_modules/.bin/codecov -f ./coverage/coverage.json && rm -rf ./coverage",
     "doc": "node_modules/.bin/jsdoc -t ./node_modules/ink-docstrap/template -R README.md -r index.js ./lib"
   },
   "repository": {
