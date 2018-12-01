@@ -1,6 +1,6 @@
 'use strict'
 const chai = require('chai')
-const Mediator = require('../../')
+const Mediator = require('..')
 const expect = chai.expect
 
 chai.should()

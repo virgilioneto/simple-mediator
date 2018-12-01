@@ -1,27 +1,27 @@
 'use strict'
 const chai = require('chai')
-const NodeContext = require('../../lib/nodeContext')
+const Context = require('../lib/Context')
 const expect = chai.expect
 
 chai.should()
 
-describe('NodeContext#status', () => {
+describe('Context#status', () => {
   context('Valid operations', () => {
     it('Must be ENABLED by default', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       c.status.should.be.a('String')
       expect(c.status).to.be.equal('ENABLED')
     })
 
     it('Can be disabled', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       c.disable()
       c.status.should.be.a('String')
       expect(c.status).to.be.equal('DISABLED')
     })
 
     it('Can be re-enabled', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       c.disable()
       c.status.should.be.a('String')
       expect(c.status).to.be.equal('DISABLED')

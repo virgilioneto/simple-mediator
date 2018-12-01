@@ -1,15 +1,15 @@
 'use strict'
 const EventEmitter = require('events').EventEmitter
 const chai = require('chai')
-const NodeContext = require('../../lib/nodeContext')
+const Context = require('../lib/Context')
 const expect = chai.expect
 
 chai.should()
 
-describe('NodeContext#on', () => {
+describe('Context#on', () => {
   context('Valid operations', () => {
     it('Event and function', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       let result = c.removeAllListeners()
       expect(result).to.be.an.instanceof(EventEmitter)
       expect(result).to.have.property('_eventsCount')
@@ -19,7 +19,7 @@ describe('NodeContext#on', () => {
 
     it('Same event and function more than once', () => {
       let t = Math.round(Math.random() * 10) || 2
-      let c = new NodeContext('context')
+      let c = new Context('context')
       for (let i = 1; i <= t; i++) {
         c.on(`event${i}`, () => {})
       }

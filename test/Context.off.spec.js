@@ -1,14 +1,14 @@
 'use strict'
 const chai = require('chai')
-const NodeContext = require('../../lib/nodeContext')
+const Context = require('../lib/Context')
 const expect = chai.expect
 
 chai.should()
 
-describe('NodeContext#off', () => {
+describe('Context#off', () => {
   context('Valid operations', () => {
     it('Event and function', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       let fn = () => {}
       c.on('event', fn)
       c.off('event', fn)
@@ -18,7 +18,7 @@ describe('NodeContext#off', () => {
     })
 
     it('Same event and function more than once', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       let fn = () => {}
       c.on('event', fn)
       c.off('event', fn)
@@ -30,7 +30,7 @@ describe('NodeContext#off', () => {
 
   context('Invalid operations', () => {
     it('No params given', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       try {
         let fn = () => {}
         c.on('event', fn)
@@ -43,7 +43,7 @@ describe('NodeContext#off', () => {
     })
 
     it('No event given', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       try {
         let fn = () => {}
         c.on('event', fn)
@@ -56,7 +56,7 @@ describe('NodeContext#off', () => {
     })
 
     it('With non-string event param', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       try {
         let fn = () => {}
         c.on('event', fn)
@@ -69,7 +69,7 @@ describe('NodeContext#off', () => {
     })
 
     it('No fn given', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       try {
         let fn = () => {}
         c.on('event', fn)
@@ -82,7 +82,7 @@ describe('NodeContext#off', () => {
     })
 
     it('With non-function fn param', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       try {
         let fn = () => {}
         c.on('event', fn)

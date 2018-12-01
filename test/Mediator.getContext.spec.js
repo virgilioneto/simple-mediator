@@ -1,7 +1,7 @@
 'use strict'
 const chai = require('chai')
-const Mediator = require('../../')
-const NodeContext = require('../../lib/nodeContext')
+const Mediator = require('..')
+const NodeContext = require('../lib/Context')
 const expect = chai.expect
 
 chai.should()

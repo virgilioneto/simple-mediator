@@ -1,22 +1,22 @@
 'use strict'
 const chai = require('chai')
-const NodeContext = require('../../lib/nodeContext')
+const Context = require('../lib/Context')
 const expect = chai.expect
 const assert = chai.assert
 
 chai.should()
 
-describe('NodeContext#on', () => {
+describe('Context#on', () => {
   context('Valid operations', () => {
     it('Without any event', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       let result = c.emit('event', {data: 'a'})
       expect(result).to.be.an('Boolean')
       result.should.be.equal(false)
     })
 
     it('Without params', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       c.on('event', () => {})
       let result = c.emit()
       expect(result).to.be.an('Boolean')
@@ -24,7 +24,7 @@ describe('NodeContext#on', () => {
     })
 
     it('Should receive event', (done) => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       let someValue = Math.round(Math.random() * 100)
       c.on('event', (data) => {
         expect(data).to.be.an('Object')
@@ -39,7 +39,7 @@ describe('NodeContext#on', () => {
     })
 
     it('Should receive N events', (done) => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       let someValue = Math.round(Math.random() * 100)
       let received = 0
       let t = Math.round(Math.random() * 10) || 2
@@ -60,7 +60,7 @@ describe('NodeContext#on', () => {
     })
 
     it('Should not receive event when disabled', () => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       c.on('event', assert.fail)
       c.disable()
       let result = c.emit('event', {v: 1})
@@ -69,7 +69,7 @@ describe('NodeContext#on', () => {
     })
 
     it('Should receive event when re-enabled', (done) => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       let someValue = Math.round(Math.random() * 100)
       c.on('event', (data) => {
         expect(data).to.be.an('Object')
@@ -90,7 +90,7 @@ describe('NodeContext#on', () => {
     })
 
     it('Should receive event only once', (done) => {
-      let c = new NodeContext('context')
+      let c = new Context('context')
       let someValue = Math.round(Math.random() * 100)
       let received = 0
       c.once('event', (data) => {
