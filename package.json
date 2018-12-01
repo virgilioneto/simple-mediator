@@ -1,0 +1,38 @@
+{
+  "name": "@virgilioneto/simple-mediator",
+  "version": "1.0.0",
+  "description": "Simple Mediator",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha ./test/**/*.spec.js",
+    "istanbul": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec ./test/**/*.spec.js && rm -rf ./coverage",
+    "codecov": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec ./test/**/*.spec.js && ./node_modules/.bin/codecov -f ./coverage/coverage.json && rm -rf ./coverage",
+    "doc": "node_modules/.bin/jsdoc -t ./node_modules/ink-docstrap/template -R README.md -r index.js ./lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/virgilioneto/simple-mediator.git"
+  },
+  "author": "Virgilio Missão Neto <virgilio.missao.neto@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/virgilioneto/simple-mediator/issues"
+  },
+  "homepage": "https://github.com/virgilioneto/simple-mediator#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "codecov": "^1.0.1",
+    "eslint": "^3.13.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-config-standard-jsx": "^3.2.0",
+    "eslint-plugin-promise": "^3.4.0",
+    "eslint-plugin-react": "^6.9.0",
+    "eslint-plugin-standard": "^2.0.1",
+    "ink-docstrap": "^1.3.0",
+    "istanbul": "^0.4.5",
+    "jsdoc": "^3.4.3",
+    "mocha": "^3.2.0",
+    "mocha-lcov-reporter": "^1.2.0",
+    "standard": "^8.6.0"
+  }
+}
