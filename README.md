@@ -1,6 +1,5 @@
 # Simple Mediator
 
-[![npm version](https://badge.fury.io/js/@virgilioneto/simple-mediator.svg)](https://badge.fury.io/js/simple-mediator)
 [![Build Status](https://travis-ci.org/virgilioneto/simple-mediator.svg?branch=master)](https://travis-ci.org/virgilioneto/simple-mediator)
 [![codecov](https://codecov.io/gh/virgilioneto/simple-mediator/branch/master/graph/badge.svg)](https://codecov.io/gh/virgilioneto/simple-mediator)
 

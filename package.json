@@ -1,6 +1,6 @@
 {
   "name": "@virgilioneto/simple-mediator",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Simple Mediator",
   "main": "index.js",
   "scripts": {
